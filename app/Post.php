@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class Post extends Model
 {
     protected $fillable = ['title','content', 'date', 'description'];
-    
+
     const IS_DRAFT = 0;
     const IS_PUBLIC = 1;
 
