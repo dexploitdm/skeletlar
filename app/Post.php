@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'content', 'date', 'user_id'];
+    protected $fillable = ['title','content', 'date', 'description'];
+    
     const IS_DRAFT = 0;
     const IS_PUBLIC = 1;
 
@@ -191,6 +192,14 @@ class Post extends Model
         return (!$this->tags->isEmpty())
             ?   implode(', ', $this->tags->pluck('title')->all())
             : 'Нет тегов';
+    }
+
+    /**Получение ID категории для вывода в Edit
+     * @return null
+     */
+    public function getCategoryID()
+    {
+        return $this->category != null ? $this->category->id : null;
     }
 
     /**Предыдущие записи
