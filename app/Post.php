@@ -38,6 +38,9 @@ class Post extends Model
             'tag_id'
         );
     }
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
     /*
      *Добавление записи
      */

@@ -21,6 +21,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/profile', 'ProfileController@index');
     Route::post('/profile', 'ProfileController@store');
     Route::get('/logout' , 'AuthController@logout');
+    Route::post('/comment' , 'CommentsController@store');
 });
 Route::group(['middleware' => 'guest'], function (){
     Route::get('/register' , 'AuthController@registerForm');

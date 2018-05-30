@@ -6,6 +6,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
+                    @if(session('status'))
+                        <div class="alert alert-succes">
+                            {{session('status')}}
+                        </div>
+                    @endif
                     <article class="post">
                         <div class="post-thumb">
                             <a href="{{route('post.show', $post->slug)}}"><img src="{{$post->getImage()}}" alt=""></a>
@@ -103,32 +108,32 @@
                         </div>
                     </div>
 
-                    {{--@if(!$post->comments->isEmpty())--}}
-                        {{--@foreach($post->getComments() as $comment)--}}
-                            {{--<div class="bottom-comment"><!--bottom comment-->--}}
-                                {{--<div class="comment-img">--}}
-                                    {{--<img class="img-circle" src="{{$comment->author->getImage()}}" alt="" width="75" height="75">--}}
-                                {{--</div>--}}
+                    @if(!$post->comments->isEmpty())
+                        @foreach($post->getComments() as $comment)
+                            <div class="bottom-comment"><!--bottom comment-->
+                                <div class="comment-img">
+                                    <img class="img-circle" src="{{$comment->author->getImage()}}" alt="" width="75" height="75">
+                                </div>
 
-                                {{--<div class="comment-text">--}}
-                                    {{--<h5>{{$comment->author->name}}</h5>--}}
+                                <div class="comment-text">
+                                    <h5>{{$comment->author->name}}</h5>
 
-                                    {{--<p class="comment-date">--}}
-                                        {{--{{$comment->created_at->diffForHumans()}}--}}
-                                    {{--</p>--}}
+                                    <p class="comment-date">
+                                        {{$comment->created_at->diffForHumans()}}
+                                    </p>
 
 
-                                    {{--<p class="para">{{$comment->text}}</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--@endforeach--}}
-                    {{--@endif--}}
+                                    <p class="para">{{$comment->text}}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
 
                 <!-- end bottom comment-->
 
                     @if(Auth::check())
                         <div class="leave-comment"><!--leave comment-->
-                            <h4>Leave a reply</h4>
+                            <h4>Коментарий</h4>
 
 
                             <form class="form-horizontal contact-form" role="form" method="post" action="/comment">
@@ -140,7 +145,7 @@
                                                       placeholder="Write Massage"></textarea>
                                     </div>
                                 </div>
-                                <button class="btn send-btn">Post Comment</button>
+                                <button class="btn send-btn">Отправить</button>
                             </form>
                         </div><!--end leave comment-->
                     @endif
