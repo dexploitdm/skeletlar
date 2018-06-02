@@ -25,7 +25,7 @@ class Comment extends Model
         $this->save();
     }
     public function toggleStatus(){
-        if($this->status = 0){
+        if($this->status == 0){
             return $this->allow();
         }
         return $this->disAllow();

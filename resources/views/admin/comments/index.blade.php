@@ -22,7 +22,7 @@
       <!-- Default box -->
       <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Листинг сущности</h3>
+              <h3 class="box-title">Комментарии</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -57,7 +57,7 @@
 	                   {{Form::close()}}
                 </tr>
                 @endforeach
-                </tfoot>
+                </tbody>
               </table>
             </div>
             <!-- /.box-body -->

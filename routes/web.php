@@ -33,9 +33,6 @@ Route::group(['middleware' => 'guest'], function (){
 
 
 
-
-
-
 Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware'	=>	'admin'
 ], function(){
     Route::get('/', 'DashboardController@index');
@@ -43,9 +40,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware'	=>	'admin'
     Route::resource('/tags', 'TagsController');
     Route::resource('/users', 'UsersController');
     Route::resource('/posts', 'PostsController');
-//    Route::get('/comments', 'CommentsController@index');
-//    Route::get('/comments/toggle/{id}', 'CommentsController@toggle');
-//    Route::delete('/comments/{id}/destroy', 'CommentsController@destroy')->name('comments.destroy');
+    Route::get('/comments', 'CommentsController@index');
+    Route::get('/comments/toggle/{id}', 'CommentsController@toggle');
+    Route::delete('/comments/{id}/destroy', 'CommentsController@destroy')->name('comments.destroy');
 //    Route::resource('/subscribers', 'SubscribersController');
 });
 
