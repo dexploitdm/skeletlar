@@ -16,6 +16,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => '12345678a',
+            'is_admin' => '1',
+            'status' => '0',
+            'remember_token' => str_random(10),
         ]);
     }
 }
