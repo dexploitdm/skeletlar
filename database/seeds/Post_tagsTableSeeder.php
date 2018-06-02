@@ -13,8 +13,8 @@ class Post_tagsTableSeeder extends Seeder
     public function run()
     {
         DB::table('post_tags')->insert([
-            'post_id' => mt_rand(1),
-            'tag_id' => mt_rand(1),
+            'post_id' => '1',
+            'tag_id' => '0',
         ]);
     }
 }
